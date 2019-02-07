@@ -1,0 +1,25 @@
+.header{
+    width: 50%;
+    height: 100px;
+    margin: auto;
+    border: 2px solid orange;
+    background-color: brown;
+    background-image: linear-gradient(to rigth, orange, brown, black, orange, brown, black, orange, brown, black) !important;
+    box-shadow: 5px 5px rgba(83, 56, 1, 0.747);
+}
+.link{
+    margin: auto;
+    padding: 20px;
+    font-size: 20px;
+    color: orangered;
+    font-weight: bold;
+    border: 1px solid orangered;
+    margin-top: 15px !important;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: orange;
+}
+.link:hover{
+    background-color: rgba(255, 0, 0, 0.5)
+}

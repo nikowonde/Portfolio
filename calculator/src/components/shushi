@@ -1,0 +1,24 @@
+                <tr><Button onClick={this.handleClick} label='C' value='clear'/></tr>
+                  <tr><Button onClick={this.handleClick} label='7' value='7'/></tr>
+                  <tr><Button onClick={this.handleClick} label='4' value='4' /></tr>
+                  <tr><Button onClick={this.handleClick} label='1' value='1'/></tr>
+                  <tr><Button onClick={this.handleClick} label='0' value='0'/></tr>
+                </td>
+                <td>
+                  <tr><Button onClick={this.handleClick} label='/' value='/'/></tr>
+                  <tr><Button onClick={this.handleClick} label='8' value='8'/></tr>
+                  <tr><Button onClick={this.handleClick} label='5' value='5'/></tr>
+                  <tr><Button onClick={this.handleClick} label='2' value='2'/></tr>
+                  <tr><Button onClick={this.handleClick} label='.' value='.'/></tr>
+                </td>
+                <td>
+                  <tr><Button onClick={this.handleClick} label='x' value='*'/></tr>
+                  <tr><Button onClick={this.handleClick} label='9' value='9'/></tr>
+                  <tr><Button onClick={this.handleClick} label='6' value='6'/></tr>
+                  <tr><Button onClick={this.handleClick} label='3' value='3'/></tr>
+                  <tr><Button onClick={this.handleClick} label='' value=''/></tr>
+                </td>
+                <td>
+                  <tr><Button onClick={this.handleClick} label='-' value='-'/></tr>
+                  <tr><Button onClick={this.handleClick} label='+' size='2' value='+'/></tr>
+                  <tr><Button onClick={this.handleClick} label='=' size="2" value='equal'/></tr>

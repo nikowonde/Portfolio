@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+.Container{
+  border: 5px solid orangered;
+  box-shadow: 5px 5px rgba(83, 56, 1, 0.747);
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  background-color: brown;
+}
+.button{
+  padding: 10px;
+  background-color: orangered;
+  color: orange;
+  font-size: 14px;
+  font-weight: bold; 
+  margin: 10px;
+  position: inherit;
+}
+.Pic{
+  max-width: 500px;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  max-height: 500px;
+}
