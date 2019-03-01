@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Slider from 'react-slick';
@@ -9,24 +9,24 @@ import { fetchVideo } from '../store/actions/homepageActions';
 const img_url = 'https://image.tmdb.org/t/p/original';
 
 const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      color                 : 'white',
-      background: '#080a0a none repeat scroll 0% 0%',
-      width: '600px',
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        color: 'white',
+        background: '#080a0a none repeat scroll 0% 0%',
+        width: '600px',
     }
-  };
-  
+};
+
 Modal.setAppElement('#root')
 
-class Trending extends React.Component{
+class Trending extends React.Component {
 
-    constructor(){
+    constructor() {
         super();
 
         this.state = {
@@ -41,33 +41,34 @@ class Trending extends React.Component{
         this.closeModal = this.closeModal.bind(this);
     }
 
-    openModal(movie){
-        this.setState({modalIsOpen: true, movie: movie});
+    openModal(movie) {
+        this.setState({ modalIsOpen: true, movie: movie });
         this.props.fetchVideo(movie);
+        console.log(`${movie.id} <-`);
     }
 
-    afterOpenModal(){
+    afterOpenModal() {
         this.subtitle.style.color = '#f00';
     }
 
-    closeModal(){
-        this.setState({modalIsOpen: false, movie: ''});
+    closeModal() {
+        this.setState({ modalIsOpen: false, movie: '' });
     }
 
-        render(){
+    render() {
         let trending;
-        if (this.props.trending.length > 0){
+        if (this.props.trending.length > 0) {
             //console.log(props.trending[0].results)
             trending = this.props.trending[0].results.map(tr => (
-                    <div className='sliderbox' key={tr.id}>
-                        <div className='text-block'>
-                            <h5 className='sliderTitle'>{tr.title}</h5>
-                            <FontAwesomeIcon onClick={() => this.openModal(tr)} icon="plus-circle" className='sliderIcon' />
-                            <p className='sliderRelease'>{tr.release_date}</p>
-                            <p className='sliderVote'>{tr.vote_average}</p>
-                        </div>
-                        <img className='sliderImg' src={`${img_url}${tr.poster_path}`} alt={tr.title} />
+                <div className='sliderbox' key={tr.id}>
+                    <div className='text-block'>
+                        <h5 className='sliderTitle'>{tr.title}</h5>
+                        <FontAwesomeIcon onClick={() => this.openModal(tr)} icon="plus-circle" className='sliderIcon' />
+                        <p className='sliderRelease'>{tr.release_date}</p>
+                        <p className='sliderVote'>{tr.vote_average}</p>
                     </div>
+                    <img className='sliderImg' src={`${img_url}${tr.poster_path}`} alt={tr.title} />
+                </div>
             ));
         }
 
@@ -92,25 +93,25 @@ class Trending extends React.Component{
                     {trending}
                 </Slider>
                 <Modal
-                isOpen={this.state.modalIsOpen}
-                onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
-                style={customStyles}
-                contentLabel='similar movie modal'
+                    isOpen={this.state.modalIsOpen}
+                    onAfterOpen={this.afterOpenModal}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    contentLabel='similar movie modal'
                 >
-                <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.movie.title}</h2>
+                    <h2 ref={subtitle => this.subtitle = subtitle}>{this.state.movie.title}</h2>
                     <div>
-                    <p>Id: {this.state.movie.id}</p>
-                    <h5 className='modalRelease'>Released: {this.state.movie.release_date}</h5>
-                    <h5 className='modalVote'>Rating: {this.state.movie.vote_average}</h5>
-                    {tmpId.length >0 ?<iframe width="560" height="315" src={`https://www.youtube.com/embed/${tmpId}`} frameBorder="0" title='youtube' allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className='videoFrame'></iframe> : <p className='loading'>Loading...</p>}
+                        <p>Id: {this.state.movie.id}</p>
+                        <h5 className='modalRelease'>Released: {this.state.movie.release_date}</h5>
+                        <h5 className='modalVote'>Rating: {this.state.movie.vote_average}</h5>
+                        {tmpId.length > 0 ? <iframe width="560" height="315" src={`https://www.youtube.com/embed/${tmpId}`} frameBorder="0" title='youtube' allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className='videoFrame'></iframe> : <p className='loading'>Loading...</p>}
                     </div>
-                <button className='modalClose' onClick={this.closeModal}>X</button>
+                    <button className='modalClose' onClick={this.closeModal}>X</button>
                 </Modal>
             </div>
         )
-        }
     }
+}
 
 
 const mapStateToProps = (state) => {
